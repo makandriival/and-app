@@ -1,0 +1,22 @@
+<div class="bg-black h-[100vh] flex flex-col gap-3 justify-center items-center">
+  <h1 class="block text-3xl font-medium text-gray-900 dark:text-white mb-9">Test your password</h1>
+  <div class="w-[300px] relative">
+    <input [type]="inputType" id="password" [formControl]="password"
+      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+      placeholder="•••••••••"
+      required
+      (input)="checkPassword()"
+    />
+    <mat-icon
+      *ngIf="password.value"
+      class="absolute top-2 right-2 cursor-pointer"
+      (click)="toggleMask()">
+    {{ inputType === 'password' ? 'visibility' : 'visibility_off' }}
+    </mat-icon>
+  </div>
+  <div class="flex justify-between gap-2 w-[300px]">
+    <div [class]="pickColor(1, power)"></div>
+    <div [class]="pickColor(2, power)"></div>
+    <div [class]="pickColor(3, power)"></div>
+  </div>
+</div>
